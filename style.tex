@@ -1,0 +1,119 @@
+%-------------------------
+% ATS-Friendly Resume Style
+% Keep this file unchanged when tailoring your CV.
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+%---------- PACKAGES ----------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+
+
+%---------- FONT ----------
+% Same font family and weight as the original template
+\usepackage{iftex}
+\usepackage{graphicx}
+\ifPDFTeX
+  % pdfLaTeX-safe, selectable text and a close Arial-like font.
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[scaled=0.96]{helvet}
+  \renewcommand{\familydefault}{\sfdefault}
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\else
+  % Keep the original Arimo typography under XeLaTeX / LuaLaTeX.
+  \usepackage{fontspec}
+  \IfFontExistsTF{Arimo}{
+    \setmainfont{Arimo}
+    \setsansfont{Arimo}
+    \setmonofont{Arimo}
+  }{
+    \setmainfont{TeX Gyre Heros}
+    \setsansfont{TeX Gyre Heros}
+    \setmonofont{Latin Modern Mono}
+  }
+\fi
+\newcommand{\cvsemibold}{\bfseries}
+\definecolor{europassblue}{HTML}{4E9DCE}
+\definecolor{cvgray}{HTML}{1A1A1A}
+
+%---------- ATS / PDF TEXT EXTRACTION ----------
+
+\hypersetup{
+  pdfauthor={Muhammad Asad},
+  pdftitle={Muhammad Asad - CV},
+  pdfsubject={Resume},
+  pdfkeywords={}
+}
+
+%---------- PAGE STYLE ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%---------- MARGINS ----------
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+% Shift the complete CV upward by 28pt without changing internal spacing.
+\addtolength{\topmargin}{-18pt}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\color{black}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parindent}{0pt}
+
+%---------- SECTION FORMATTING ----------
+\titleformat{\section}
+  {\vspace{-4pt}\color{black}\bfseries\raggedright\large}
+  {}{0em}{}
+  [\color{europassblue}\titlerule\vspace{-5pt}]
+
+%---------- CUSTOM COMMANDS ----------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    {\small\cvsemibold\color{cvgray} #1} & {\small #2} \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \small\color{cvgray} #1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in,label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.38in, itemsep=2pt, parsep=0pt, topsep=3pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Europass-inspired single-line work heading: role -- company -- dates -- location
+\newenvironment{experienceblock}[4]{%
+  \par\vspace{5pt}\noindent
+  {\small\color{cvgray}{\cvsemibold #1 -- #2} -- #3 -- #4}\par\vspace{1pt}
+}{\par\vspace{3pt}}
